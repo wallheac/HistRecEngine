@@ -1,24 +1,173 @@
+html{
+  min-height: 100%;
+}
+body{
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
 .App {
   text-align: center;
+  font-family: Cairo;
+  font-weight: bold;
+  font-size: 1em;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1{
+  margin: auto;
+  font-size: 2em;
 }
-
 .App-header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  padding: 20px 50px;
+  color: black;
+  background-color: #E6E7E8;
+}
+.accountControl{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.button{
+  background-color: #33356A;
   color: white;
+  text-transform:uppercase;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
 }
-
-.App-intro {
-  font-size: large;
+.content-container{
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  justify-content: center;
+  background-color: #222;
+  color: black;
+  background-color: white;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.getBook{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar{
+  padding: 20px 50px;
+  display: flex;
+  flex-flow: column-reverse;
+}
+.feedback{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#feedbackForm{
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: left;
+}
+.checkbox{
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content:center;
+  align-items: center;
+  padding: 0 1.5em;
+}
+.checkbox input{
+  margin: 1em;
+}
+.checkbox p{
+  margin: 0;
+}
+.main{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items:center;
+  background-color: white;
+  margin-top: 1.5em;
+}
+.bookFrame{
+  width: 70%;
+  height: 300px;
+  background-color: gray;
+}
+.navButton{
+  height: 100px;
+}
+@media screen and (min-width: 450px){
+  .button{
+    width: 65%
+  }
+  .content-container{
+    flex-flow: column-reverse;
+  }
+}
+@media screen and (min-width: 768px){
+  .App-header{
+    flex-flow: row;
+    justify-content: space-between;
+    border-bottom: thin solid gray;
+  }
+  .button{
+    width: 80%;
+  }
+  h1{
+    font-size: 2.2em;
+  }
+  h2{
+    padding: 0 1em;
+  }
+  .accountControl{
+    flex-flow: row;
+    width: 30%;
+  }
+  .content-container{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .sidebar{
+    flex-flow: column;
+    width: 30%;
+    padding: 0;
+    border-right: thin solid gray;
+  }
+  .getBook{
+    border-color: gray;
+    border-width: thin;
+    border-style: solid;
+    border-top: none;
+    padding-bottom:25px;
+  }
+  .feedback{
+    border-color: gray;
+    border-width: thin;
+    border-style: solid;
+    border-right: none;
+    border-top: none;
+  }
+  .checkbox{
+    justify-content:flex-end;
+  }
+  .main{
+    width: 70%;
+  }
+  .bookFrame{
+    height: 500px;
+  }
+  #purchase, #library{
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1024px){
+  h1{
+    font-size: 2.6em;
+  }
 }
