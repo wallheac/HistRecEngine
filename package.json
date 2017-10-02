@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+     "neo4j": "^1.1.1",
+    "neo4j-driver": "^1.4.0",
+    "proxyquire": "^1.8.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.12"
+    "react-scripts": "1.0.12",
+    "rewire": "^2.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
