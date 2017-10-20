@@ -4,9 +4,10 @@ import Title from './components/title';
 import GetBook from './components/getBook';
 import Feedback from './components/feedback';
 import DisplayBook from './components/displayBook';
-import AccountControl from './components/accountControl'
-import Neo4j from 'neo4j-driver';
-import Neo from 'neo4j';
+import AccountControl from './components/accountControl';
+import axios from 'axios';
+
+
 
 const BOOKS_API_KEY = 'AIzaSyBsYFvtTgy4SF9tju6mx_uzWeotit4bTOQ';
 //const neoapi = require('./neo4j-api');
@@ -36,36 +37,16 @@ class App extends Component {
     );
   }
 }
-//test function for neo4j_api
-// function testNeo(){
-//   neoapi.generateList('GENSUBJ');
-// }
-// var test = testNeo();
-var testNeo = generateList("GENSUBJ");
-
-
-
+var list = generateList('genSubj')
 function generateList(type){
-  var neo4j = require('neo4j-driver').v1;
-  var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j"));
-//let type = 'GENSUBJ';
-  var session = driver.session();
-  session
-    .run(
-      'MATCH(result:type)\
-      RETURN result LIMIT 10',
-      {genSubj: '(?i).*' + type + '.*'}
-    )
-  //   .then(result => {
-  //     result.records.forEach(record => {
-  //       console.log(record.get('genSubj'));
-  //       });
-  //     }
-  //   )
-  //   .catch(error =>{
-  //     session.close();
-  //     throw error;
-  //  });
+  axios.get("http://localhost:3001/neo/" + type)
+    .then(function(res){
+      console.log("Axios in React - response: " + res.data[0][type]);
+      })
+    .catch(function(err){
+      console.log('generateList failed: ' + err);
+    });
 }
+
 
 export default App;
